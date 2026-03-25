@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Models</title>
+  <link rel="stylesheet" href="css/Models.css">
+  <script src="js/Models.js" defer></script>
+  <script src="js/trangchu.js" defer></script>
+   <script src="js/Giohang.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><div class="logo">FF</div><div><div style="font-weight:700">Acc free free Q$V</div><div style="font-size:12px;color:var(--muted)">Demo</div></div></div>
+    <nav class="menu">
+      <a href="Giohang.html"><svg width="20" height="20"><!--svg--></svg></a>
+      <a href="Trangchu.html">Trang Chủ</a>
+      <a href="Phantrungbay.html">Phòng trưng bày</a>
+      <a href="Lienhe.html">Liên hệ</a>
+      <div id="authButtons"><a href="Dangnhap.html">Đăng nhập</a><a href="Dangky.html">Đăng ký</a></div>
+      <div id="userInfo" style="display:none;"><img src="image/avatar.png" class="avatar"><button onclick="logout()">Đăng xuất</button></div>
+      <a href="Giohang.html" class="cart-link">Giỏ <span id="cartCount" class="cart-count">0</span></a>
+    </nav>
+  </header>
+  <main style="padding:20px;">
+    <h2>Tất cả sản phẩm</h2>
+    <div id="listModels" class="grid"></div>
+    <!-- Thêm phân trang -->
+  <div id="pagination" class="pagination"></div>
+</main>
+  <section id="showroom">
+  <h3>Acc free free Q$V& Dịch vụ</h3>
+  <div class="showroom-grid">
+    <div class="showroom-card">
+      <strong>Địa chỉ</strong>
+      <div class="small">375 Lê Văn Thọ, Gò Vấp, TP.HCM</div>
+    </div>
+    <div class="showroom-card">
+      <strong>Dịch vụ</strong>
+      <div class="small">Bảo dưỡng, sửa chữa chính hãng.</div>
+    </div>
+    <div class="showroom-card">
+      <strong>Giờ mở cửa</strong>
+      <div class="small">Thứ 2–Thứ 7: 9:00 — 18:00</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-card">
+    <div>
+      <h4>Liên hệ tư vấn</h4>
+      <p>Gọi: <strong>+84 123 567 890</strong> • Email: vominh12345@gmail.com</p>
+    </div>
+    <button>Gửi yêu cầu</button>
+  </div>
+</section>
+
+
+  <footer>© Acc free free Q$V — </footer>
+</body>
+</html>

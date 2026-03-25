@@ -1,0 +1,228 @@
+/* ===============================
+   🌙 RESET & CẤU HÌNH CHUNG
+   =============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at top, #8c8c8c, #111);
+  color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   🌟 HEADER
+   =============================== */
+header {
+  background: linear-gradient(90deg, #000 0%, #111 100%);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffcc00;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+header .menu a {
+  color: #ddd;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+header .menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffcc00;
+  transition: width 0.3s ease;
+}
+
+header .menu a:hover {
+  color: #ffcc00;
+}
+
+header .menu a:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   🔐 FORM ĐĂNG NHẬP / ĐĂNG KÝ
+   =============================== */
+.auth-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.auth-form {
+  background: rgba(25, 25, 25, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 40px 35px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255, 204, 0, 0.3);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #ffcc00;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+}
+
+.auth-form label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #ffcc00;
+  background: #2b2b2b;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.3);
+}
+
+/* ===============================
+   🟡 NÚT CHÍNH
+   =============================== */
+.btn {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background: linear-gradient(135deg, #ffcc00, #ffd84d);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #ffd84d, #ffcc00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 204, 0, 0.4);
+}
+
+/* ===============================
+   🔁 LIÊN KẾT CHUYỂN TRANG
+   =============================== */
+.switch {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.switch a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   👤 USER INFO / AVATAR / LOGOUT
+   =============================== */
+.user-menu, #userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.5);
+}
+
+.logout-btn {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #c51f29;
+  transform: scale(1.05);
+}
+
+/* ===============================
+   📱 RESPONSIVE
+   =============================== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  header .menu a {
+    margin: 0 10px;
+  }
+
+  .auth-form {
+    padding: 30px 20px;
+  }
+}

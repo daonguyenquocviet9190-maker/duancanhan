@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Phòng Trưng Bày - Acc free free Q$V</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* =========================================
+   🔹 RESET & GLOBAL
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* =========================================
+   🔹 HEADER
+   ========================================= */
+header {
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  border-bottom: 2px solid #d4af37;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .brand {
+  font-size: 26px;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav a {
+  margin: 0 14px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   🔹 BANNER
+   ========================================= */
+.banner {
+  position: relative;
+  height: 450px;
+  background: url("image/showroom-banner.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.banner h1 {
+  position: relative;
+  color: #d4af37;
+  font-size: 52px;
+  font-weight: 700;
+  z-index: 1;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+  letter-spacing: 2px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* =========================================
+   🔹 FILTER BOX
+   ========================================= */
+.filter-box {
+  max-width: 1200px;
+  margin: 40px auto 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 0 25px;
+}
+
+.filter-box h3 {
+  color: #d4af37;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+select {
+  background: #111;
+  color: #f5f5f5;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+select:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* =========================================
+   🔹 PRODUCT GRID
+   ========================================= */
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.card.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.card-content {
+  padding: 18px;
+  text-align: center;
+}
+
+.card-content h3 {
+  color: #d4af37;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.price {
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.btn-detail {
+  background: #d4af37;
+  color: #000;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-detail:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* =========================================
+   🔹 FOOTER
+   ========================================= */
+footer {
+  background: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 40px 20px 20px;
+  border-top: 1px solid #222;
+  margin-top: 60px;
+}
+
+.footer-top {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 20px;
+}
+
+.footer-top div {
+  flex: 1;
+  min-width: 230px;
+  text-align: left;
+}
+
+.footer-top h4 {
+  color: #d4af37;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.footer-top a {
+  display: block;
+  color: #bbb;
+  font-size: 15px;
+  margin-bottom: 6px;
+  transition: 0.3s;
+}
+
+.footer-top a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  padding-top: 12px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* =========================================
+   🔹 ANIMATIONS & RESPONSIVE
+   ========================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 850px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+  }
+  .banner h1 {
+    font-size: 36px;
+  }
+  .filter-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 350px;
+  }
+  .banner h1 {
+    font-size: 28px;
+  }
+  .card-content h3 {
+    font-size: 18px;
+  }
+  .footer-top {
+    gap: 25px;
+  }
+}
+
+  </style>
+
+  <script>
+    const API_PRODUCTS = "http://localhost:3000/products";
+    const API_LOAI = "http://localhost:3000/loai";
+    let products = [];
+    let loai = [];
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await Promise.all([loadLoai(), loadProducts()]);
+      setupFilters();
+      setupScrollEffect();
+    });
+
+    async function loadLoai() {
+      const res = await fetch(API_LOAI);
+      loai = await res.json();
+      const selectLoai = document.getElementById("loaiSelect");
+      selectLoai.innerHTML = `<option value="">-- Tất cả loại --</option>` + 
+        loai.map(l => `<option value="${l.id}">${l.ten_loai}</option>`).join("");
+    }
+
+    async function loadProducts() {
+      const res = await fetch(API_PRODUCTS);
+      products = await res.json();
+      renderProducts(products);
+    }
+
+    function renderProducts(list) {
+      const main = document.querySelector("main");
+      main.innerHTML = list.map(p => {
+        const tenLoai = loai.find(l => l.id == p.id_loai)?.ten_loai || "Khác";
+        return `
+        <div class="card">
+          <img src="${p.image}" alt="${p.name}">
+          <div class="card-content">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <div class="price">${Number(p.price).toLocaleString()} USD</div>
+            <p style="color:#d4af37;font-size:14px;">${tenLoai}</p>
+            <button class="btn-detail" onclick="viewDetail(${p.id})">Chi tiết</button>
+          </div>
+        </div>`;
+      }).join("");
+
+      document.querySelectorAll(".card").forEach(el => observer.observe(el));
+    }
+
+    function viewDetail(id) {
+      window.location.href = `Chitiet.html?id=${id}`;
+    }
+
+    function setupFilters() {
+      const sortSelect = document.getElementById("sortSelect");
+      const loaiSelect = document.getElementById("loaiSelect");
+
+      function applyFilter() {
+        let filtered = [...products];
+
+        // Lọc theo loại
+        if (loaiSelect.value)
+          filtered = filtered.filter(p => p.id_loai === loaiSelect.value);
+
+        // Sắp xếp theo giá
+        if (sortSelect.value === "asc") filtered.sort((a,b)=>a.price-b.price);
+        if (sortSelect.value === "desc") filtered.sort((a,b)=>b.price-a.price);
+
+        renderProducts(filtered);
+      }
+
+      sortSelect.addEventListener("change", applyFilter);
+      loaiSelect.addEventListener("change", applyFilter);
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+
+    function setupScrollEffect() {
+      document.querySelectorAll(".card").forEach(el => observer.observe(el));
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="brand">🏎 Acc free free Q$V</div>
+    <nav>
+      <a href="Trangchu.html">Trang chủ</a>
+      <a href="Models.html">Models</a>
+      <a href="Phantrungbay.html">Phòng trưng bày</a>
+      <a href="Lienhe.html">Liên hệ</a>
+      <a href="Giohang.html">🛒 Giỏ hàng</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Phòng Trưng Bày Acc free free Q$V</h1>
+  </section>
+
+  <!-- Bộ lọc -->
+  <div class="filter-box">
+    <h3>Bộ sưu tập acc xịn</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <select id="loaiSelect"></select>
+      <select id="sortSelect">
+        <option value="">-- Sắp xếp theo giá --</option>
+        <option value="asc">Giá tăng dần</option>
+        <option value="desc">Giá giảm dần</option>
+      </select>
+    </div>
+  </div>
+
+  <main></main>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <h4>Acc free free Q$V</h4>
+        <p>Đại lý chính hãng tại Việt Nam — mang đến trải nghiệm tốt & đẳng cấp Ý.</p>
+      </div>
+      <div>
+        <h4>Liên kết nhanh</h4>
+        <a href="Trangchu.html">Trang chủ</a>
+        <a href="Models.html">Models</a>
+        <a href="Phantrungbay.html">Showroom</a>
+        <a href="Lienhe.html">Liên hệ</a>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>📍 375 Lê Văn Thọ, Gò Vấp, TP.HCM</p>
+        <p>📞 0909 999 999</p>
+        <p>✉️ contact@AccfreefreeQ$V.vn</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Acc free free Q$V.
+    </div>
+  </footer>
+</body>
+</html>

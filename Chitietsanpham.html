@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chi tiết sản phẩm - Lamborghini</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ==== TONE MÀU CHỦ ĐẠO ==== */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #0b0b0b;
+      color: #eee;
+    }
+
+    /* ==== HEADER ==== */
+    header {
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      border-bottom: 3px solid #d4af37;
+    }
+
+    .logo {
+      background: #d4af37;
+      color: #000;
+      font-weight: 800;
+      font-size: 22px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .menu a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #d4af37;
+    }
+
+    /* ==== MAIN ==== */
+    main {
+      max-width: 1200px;
+      margin: 60px auto;
+      background: #1a1a1a;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    }
+
+    .detail-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .detail-img {
+      flex: 1;
+      min-width: 45%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .detail-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(212,175,55,0.3);
+    }
+
+    .detail-info {
+      flex: 1;
+      min-width: 45%;
+    }
+
+    .detail-info h2 {
+      font-size: 2.2em;
+      margin-bottom: 12px;
+      color: #d4af37;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .specs {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+    }
+
+    .specs li {
+      display: flex;
+      justify-content: space-between;
+      background: #111;
+      border-left: 4px solid #d4af37;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      color: #eee;
+      font-size: 15px;
+    }
+
+    /* ==== NÚT ==== */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-group button {
+      flex: 1;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-cart {
+      background: #d4af37;
+      color: #000;
+    }
+    .btn-cart:hover {
+      background: #000;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+    }
+
+    .btn-view {
+      background: #000;
+      color: #fff;
+      border: 1px solid #d4af37;
+    }
+    .btn-view:hover {
+      background: #d4af37;
+      color: #000;
+    }
+
+    .btn-back {
+      background: #222;
+      color: #eee;
+    }
+    .btn-back:hover {
+      background: #444;
+      color: #fff;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      text-align: center;
+      padding: 18px;
+      background: #000;
+      color: #aaa;
+      margin-top: 60px;
+      border-top: 2px solid #d4af37;
+      font-size: 14px;
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 850px) {
+      .detail-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .detail-info {
+        margin-top: 25px;
+      }
+      .specs li {
+        text-align: left;
+      }
+    }
+  </style>
+
+  <script>
+    const API = "http://localhost:3000/products";
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const root = document.getElementById("detailRoot");
+
+      if (!id) {
+        root.innerHTML = "<p>Không tìm thấy sản phẩm.</p>";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/${id}`);
+        const car = await res.json();
+
+        if (!car || !car.name) {
+          root.innerHTML = "<p>❌ Sản phẩm không tồn tại.</p>";
+          return;
+        }
+
+        const specsData = {
+          "Aventador": { engine: "Google", hp: "Nữ", topSpeed: "7", accel: "Huyền thoại" },
+          "Huracan": { engine: "Garena", hp: "Nam", topSpeed: "8", accel: "Thách đấu" },
+          "Urus": { engine: "Garena", hp: "Nam", topSpeed: "6", accel: "Huyền thoại" },
+          "Countach": { engine: "Garena", hp: "Nữ", topSpeed: "8", accel: "Huyền thoại" },
+        };
+        const match = Object.entries(specsData).find(([key]) => car.name.includes(key));
+        const specs = match ? match[1] : { engine: "-", hp: "-", topSpeed: "-", accel: "-" };
+
+        root.innerHTML = `
+          <div class="detail-container">
+            <img src="${car.image}" alt="${car.name}" class="detail-img">
+            <div class="detail-info">
+              <h2>${car.name}</h2>
+              <div class="price">${Number(car.price).toLocaleString()} USD</div>
+              <p class="desc">${car.desc || "Không có mô tả chi tiết."}</p>
+
+              <ul class="specs">
+                <li><span>Đăng nhập:</span><span>${specs.engine}</span></li>
+                <li><span>Chuyên:</span><span>${specs.hp}</span></li>
+                <li><span>Vip:</span><span>${specs.topSpeed}</span></li>
+                <li><span>Rank:</span><span>${specs.accel}</span></li>
+              </ul>
+
+              <div class="btn-group">
+                <button class="btn-cart" onclick="addToCartById(${car.id})">🛒 Thêm vào giỏ hàng</button>
+                <button class="btn-view" onclick="window.location.href='Giohang.html'">Xem giỏ hàng</button>
+                <button class="btn-back" onclick="window.location.href='Models.html'">⬅ Quay lại</button>
+              </div>
+            </div>
+          </div>
+        `;
+      } catch (err) {
+        console.error(err);
+        root.innerHTML = "<p>Lỗi khi tải sản phẩm.</p>";
+      }
+    });
+
+    async function addToCartById(id) {
+      const res = await fetch(`${API}/${id}`);
+      const product = await res.json();
+      let cart = JSON.parse(localStorage.getItem("CART")) || [];
+      const exist = cart.find(i => i.id === product.id);
+      if (exist) exist.qty++;
+      else cart.push({ ...product, qty: 1 });
+      localStorage.setItem("CART", JSON.stringify(cart));
+      alert("✅ Đã thêm vào giỏ hàng!");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">FF</div>
+      <div style="font-weight:700">Acc free free Q$V</div>
+    </div>
+    <nav class="menu">
+      <a href="Trangchu.html">Trang chủ</a>
+      <a href="Models.html">Models</a>
+      <a href="Phantrungbay.html">Phòng trưng bày</a>
+      <a href="Lienhe.html">Liên hệ</a>
+      <a href="Giohang.html" class="cart-link">Giỏ hàng</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="detailRoot">Đang tải thông tin sản phẩm...</div>
+  </main>
+
+  <footer>
+    © Acc free free Q$V, Đam mê.
+  </footer>
+</body>
+</html>
