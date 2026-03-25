@@ -197,30 +197,6 @@ footer {
   margin-top: 60px;
 }
 
-/* ==== Responsive ==== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 15px;
-    padding: 14px 20px;
-  }
-
-  .hero {
-    height: 320px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-}
 /* ==== SHOWROOM ==== */
 #showroom {
   max-width: 1200px;
@@ -242,7 +218,7 @@ footer {
 }
 
 .showroom-card {
-  background: #2a2a2a; /* nền hơi sáng hơn để phân biệt */
+  background: #2a2a2a;
   border-radius: 10px;
   padding: 14px 18px;
 }
@@ -258,50 +234,6 @@ footer {
   font-size: 14px;
   color: var(--muted);
 }
-
-/* ==== CONTACT ==== */
-#contact {
-  max-width: 1200px;
-  margin: 25px auto;
-  padding: 0 20px;
-}
-
-#contact .contact-card {
-  background: #2a2a2a;
-  border-radius: 10px;
-  padding: 16px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-#contact h4 {
-  margin-bottom: 6px;
-  color: #fff;
-  font-size: 16px;
-}
-
-#contact p {
-  font-size: 14px;
-  color: var(--muted);
-}
-
-#contact button {
-  background: var(--primary);
-  color: #000;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#contact button:hover {
-  background: #d4af37;
-}
-
 
 /* ==== CONTACT ==== */
 #contact {
@@ -365,7 +297,7 @@ footer {
 
 .pagination button.active,
 .pagination button:hover {
-  background: var(--primary); /* vàng */
+  background: var(--primary);
   color: #000;
   font-weight: bold;
 }
@@ -377,7 +309,7 @@ footer {
   gap: 6px;
   background: var(--primary);
   padding: 6px 16px;
-  border-radius: 999px; /* bo tròn giống pill */
+  border-radius: 999px;
   color: #000 !important;
   font-weight: bold;
   position: relative;
@@ -394,10 +326,12 @@ footer {
   position: relative;
   top: -1px;
 }
+
 .cart-icon {
   position: relative;
   display: inline-block;
 }
+
 .cart-icon .badge {
   position: absolute;
   top: -6px;
@@ -407,6 +341,103 @@ footer {
   border-radius: 50%;
   padding: 2px 6px;
   font-size: 12px;
-  display: none; /* ẩn khi chưa có */
 }
 
+/* ====================== RESPONSIVE - THÊM Ở CUỐI FILE ====================== */
+
+@media (max-width: 1024px) {
+  .grid,
+  .showroom-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    height: 320px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .models-section h2 {
+    font-size: 28px;
+  }
+
+  .grid,
+  .showroom-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  #contact .contact-card {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .pagination button {
+    padding: 10px 12px;
+    margin: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 15px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero {
+    height: 280px;
+  }
+
+  .models-section {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .model-name {
+    font-size: 19px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+}

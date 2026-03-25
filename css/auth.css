@@ -209,20 +209,75 @@ header .menu a:hover::after {
 }
 
 /* ===============================
-   📱 RESPONSIVE
+   📱 RESPONSIVE - ĐÃ TỐI ƯU (Thêm vào cuối file)
    =============================== */
-@media (max-width: 600px) {
+
+@media (max-width: 768px) {
   header {
+    padding: 15px 20px;
     flex-direction: column;
-    text-align: center;
-    gap: 10px;
+    gap: 15px;
+  }
+
+  header .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
   }
 
   header .menu a {
-    margin: 0 10px;
+    margin: 0 12px;
+    font-size: 15px;
+  }
+
+  .auth-container {
+    padding: 40px 15px;
   }
 
   .auth-form {
-    padding: 30px 20px;
+    padding: 30px 25px;
+    max-width: 100%;
+  }
+
+  .auth-form h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 15px;
+  }
+
+  header .logo {
+    font-size: 21px;
+  }
+
+  .auth-form {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .auth-form input {
+    padding: 14px;
+    font-size: 16px; /* Tốt hơn cho mobile */
+  }
+
+  .btn {
+    padding: 14px;
+    font-size: 15.5px;
+  }
+
+  .switch {
+    font-size: 13px;
+  }
+}
+
+/* Tối ưu cho màn hình rất nhỏ */
+@media (max-width: 360px) {
+  .auth-form {
+    padding: 20px 15px;
   }
 }

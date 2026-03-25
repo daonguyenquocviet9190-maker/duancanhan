@@ -878,3 +878,95 @@ header {
   border-color: #fcd000;
   background: #111;
 }
+/* ====================== RESPONSIVE - CHỈ THÊM PHẦN NÀY Ở CUỐI FILE ====================== */
+
+@media (max-width: 1024px) {
+  #listProducts,
+  .grid,
+  .showcase-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .banner-slider {
+    aspect-ratio: 4 / 3;
+  }
+
+  #listProducts,
+  .grid,
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .detail-card {
+    flex-direction: column;
+  }
+
+  .detail-img {
+    max-width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .showcase-card {
+    height: 280px;
+  }
+
+  .prev, .next {
+    padding: 8px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #listProducts,
+  .grid,
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product img,
+  .card img,
+  .showcase-card img {
+    height: 180px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
+
+/* Tinh chỉnh nhỏ cho đẹp hơn trên mobile */
+@media (max-width: 768px) {
+  .cart-link {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+}
