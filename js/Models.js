@@ -1,20 +1,16 @@
-// ====================== CẤU HÌNH ======================
+// ====================== Models.js ======================
+
 let MODELS = [];
 let currentPage = 1;
 const itemsPerPage = 4;
 
-// ====================== HÀM LOAD DỮ LIỆU ======================
-async function fetchModels() {
-  try {
-    const res = await fetch("http://localhost:3000/products");
-    MODELS = await res.json();
-    renderModelsTo();
-  } catch (err) {
-    console.error("❌ Lỗi tải sản phẩm:", err);
-  }
+// Load dữ liệu từ data.js
+function loadModels() {
+  MODELS = window.PRODUCTS || [];
+  renderModelsTo();
 }
 
-// ====================== HIỂN THỊ DANH SÁCH ======================
+// Render danh sách sản phẩm
 function renderModelsTo(containerId = "listModels") {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -32,7 +28,7 @@ function renderModelsTo(containerId = "listModels") {
       <div class="meta">
         <div style="font-weight:700">${m.name}</div>
         <div class="small">${m.desc || ""}</div>
-        <div class="price">${m.price.toLocaleString()} $</div>
+        <div class="price">${m.price.toLocaleString("vi-VN")} VND</div>
         <div>
           <button onclick="openDetail(${m.id})">Mua ngay</button>
           <button class="primary" onclick="addToCartById(${m.id})">Thêm vào giỏ</button>
@@ -45,7 +41,7 @@ function renderModelsTo(containerId = "listModels") {
   renderPagination();
 }
 
-// ====================== PHÂN TRANG ======================
+// Phân trang
 function renderPagination() {
   const pagination = document.getElementById("pagination");
   if (!pagination) return;
@@ -64,20 +60,9 @@ function renderPagination() {
   }
 }
 
-// ====================== HÀM TIỆN ÍCH ======================
-function getModelById(id) {
-  return MODELS.find(m => m.id === Number(id));
-}
-
 function openDetail(id) {
   window.location.href = `Chitietsanpham.html?id=${id}`;
 }
 
-function addToCartById(id) {
-  const model = getModelById(id);
-  if (!model) return alert("Sản phẩm không tồn tại");
-  addToCart(model.name, model.price, model.image);
-}
-
-// ====================== KHỞI TẠO ======================
-document.addEventListener("DOMContentLoaded", fetchModels);
+// Khởi tạo
+document.addEventListener("DOMContentLoaded", loadModels);

@@ -25,14 +25,21 @@ function changeSlide(step) {
 }
 
 // ====================== GIỎ HÀNG ======================
+// ====================== GIỎ HÀNG (SỬA LẠI) ======================
 function addToCart(name, price, image) {
-  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const found = cart.find(i => i.name === name);
+  let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
+  let found = cart.find(i => i.name === name);
   if (found) {
-    found.quantity += 1;
+    found.qty = (found.qty || found.quantity || 0) + 1;
   } else {
-    cart.push({ name, price, image, quantity: 1 });
+    cart.push({ 
+      id: Date.now(), 
+      name, 
+      price, 
+      image, 
+      qty: 1 
+    });
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -42,7 +49,7 @@ function addToCart(name, price, image) {
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const count = cart.reduce((s, i) => s + i.quantity, 0);
+  const count = cart.reduce((s, i) => s + (i.qty || i.quantity || 0), 0);
   const el = document.getElementById("cartCount");
   if (el) el.textContent = count;
 }
@@ -77,17 +84,12 @@ function logout() {
 // ====================== SẢN PHẨM ======================
 let allProducts = [];
 
-async function showProducts() {
+function showProducts() {
   const productContainer = document.getElementById("listProducts");
   if (!productContainer) return;
 
-  try {
-    const res = await fetch("http://localhost:3000/products");
-    allProducts = await res.json();
-    renderProducts(allProducts);
-  } catch (err) {
-    console.error("❌ Lỗi tải sản phẩm:", err);
-  }
+  allProducts = window.PRODUCTS || [];
+  renderProducts(allProducts);
 }
 
 function renderProducts(list) {
