@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Liên hệ</title>
+  <link rel="stylesheet" href="css/lienhe.css">
+  <script src="js/trangchu.js" defer></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <div class="logo">LB</div>
+      <div>
+        <div style="font-weight:700">Acc free free Q$V</div>
+        <div style="font-size:12px;color:var(--muted)">Demo</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="Trangchu.html">Trang Chủ</a>
+      <a href="Phantrungbay.html">Phòng trưng bày</a>
+      <a href="Models.html">Models</a>
+      <a href="Lienhe.html" class="active">Liên hệ</a>
+      <div id="authButtons">
+        <a href="Dangnhap.html">Đăng nhập</a> |
+        <a href="Dangky.html">Đăng ký</a>
+      </div>
+      <div id="userInfo" style="display:none;">
+        <img src="image/avatar.png" class="avatar">
+        <button onclick="logout()">Đăng xuất</button>
+      </div>
+      <a href="Giohang.html" class="cart-link">Giỏ <span id="cartCount" class="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main style="padding:20px;">
+    <h2>Liên hệ với chúng tôi</h2>
+    <p>Nếu bạn có bất kỳ thắc mắc nào, hãy liên hệ qua form dưới đây hoặc ghé showroom của chúng tôi.</p>
+
+    <!-- Form liên hệ -->
+    <form class="contact-form">
+      <label>Họ và tên</label>
+      <input type="text" placeholder="Nhập tên của bạn" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Nhập email" required>
+
+      <label>Nội dung</label>
+      <textarea rows="5" placeholder="Viết lời nhắn..." required></textarea>
+
+      <button type="submit">Gửi yêu cầu</button>
+    </form>
+
+    <!-- Thông tin showroom -->
+    <section class="showroom-info">
+      <h3>Acc free free Q$V Vietnam</h3>
+      <p><strong>Địa chỉ:</strong> 375 Lê Văn Thọ, Gò Vấp, TP.HCM</p>
+      <p><strong>Điện thoại:</strong> +84 123 567 890</p>
+      <p><strong>Email:</strong> vominh12345@gmail.com</p>
+      <p><strong>Giờ mở cửa:</strong> Thứ 2–Thứ 7: 9:00 — 18:00</p>
+    </section>
+
+    <!-- Google Map -->
+    <div class="map-box">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.176254986995!2d106.66412417591814!3d10.797207358779542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752939c0e2f8a5%3A0x39d2d17c9e5efb17!2zMzc1IEzDqiBWxINuIFRoxqEsIEfDsiBW4bqlcCwgVGjDoG5oIHBo4buRIFRo4bqjbyBDaMOtbmggTWluaCA3MDAwMCwgVmnhu4duIE5hbQ!5e0!3m2!1svi!2s!4v1695820200000!5m2!1svi!2s" 
+        width="100%" 
+        height="350" 
+        style="border:0; border-radius:12px;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © Acc free free Q$V
+  </footer>
+</body>
+</html>

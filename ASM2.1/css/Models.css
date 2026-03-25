@@ -1,0 +1,412 @@
+:root {
+  --primary: #FFD700; /* Gold sang trọng */
+  --background: #111; /* Nền tối sâu hơn */
+  --text: #fff;
+  --muted: #bbb;
+  --card-bg: #1c1c1c;
+  --accent: #E31B23; /* Lamborghini red */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ==== HEADER ==== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: rgba(0, 0, 0, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.menu a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+/* ==== HERO ==== */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)), url('image/banner.jpg') center/cover no-repeat;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text);
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 12px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: var(--muted);
+}
+
+/* ==== MODELS ==== */
+.models-section {
+  max-width: 1280px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.models-section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 35px;
+  color: var(--primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+}
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.meta {
+  padding: 22px;
+}
+
+.model-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.description {
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.card button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-detail {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.btn-detail:hover {
+  background: #d4af37;
+}
+
+.btn-configure {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-configure:hover {
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* ==== FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 22px;
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 14px 20px;
+  }
+
+  .hero {
+    height: 320px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+/* ==== SHOWROOM ==== */
+#showroom {
+  max-width: 1200px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+}
+
+#showroom h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.showroom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.showroom-card {
+  background: #2a2a2a; /* nền hơi sáng hơn để phân biệt */
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+
+.showroom-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.showroom-card .small {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ==== CONTACT ==== */
+#contact {
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 0 20px;
+}
+
+#contact .contact-card {
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#contact h4 {
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 16px;
+}
+
+#contact p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#contact button {
+  background: var(--primary);
+  color: #000;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#contact button:hover {
+  background: #d4af37;
+}
+
+
+/* ==== CONTACT ==== */
+#contact {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+#contact .contact-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#contact h4 {
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+#contact p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#contact button {
+  background: var(--primary);
+  color: var(--background);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#contact button:hover {
+  background: #d4af37;
+}
+
+/* ==== PHÂN TRANG ==== */
+.pagination {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.pagination button {
+  background: #333;
+  color: #fff;
+  border: none;
+  margin: 0 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.pagination button.active,
+.pagination button:hover {
+  background: var(--primary); /* vàng */
+  color: #000;
+  font-weight: bold;
+}
+
+/* ==== GIỎ HÀNG ==== */
+.cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  padding: 6px 16px;
+  border-radius: 999px; /* bo tròn giống pill */
+  color: #000 !important;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+}
+
+.cart-count {
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: relative;
+  top: -1px;
+}
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+.cart-icon .badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: crimson;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  display: none; /* ẩn khi chưa có */
+}
+

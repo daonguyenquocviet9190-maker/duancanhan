@@ -1,0 +1,134 @@
+:root {
+  --primary: #ffcc00;
+  --dark: #111;
+  --muted: #777;
+  --light: #f8f8f8;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--dark);
+  color: white;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: var(--primary);
+}
+
+/* Cart */
+.cart-link {
+  background: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: black !important;
+  font-weight: bold;
+}
+
+.cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0 40px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.contact-form button {
+  background: var(--primary);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact-form button:hover {
+  background: #e6b800;
+}
+
+/* Showroom info */
+.showroom-info {
+  background: var(--light);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* Map */
+.map-box {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
