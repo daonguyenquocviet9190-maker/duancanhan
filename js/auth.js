@@ -65,7 +65,7 @@ if (formDangNhap) {
     localStorage.setItem("currentUser", JSON.stringify(user));
 
     alert("✅ Đăng nhập thành công!");
-    window.location.href = "Trangchu.html";
+    window.location.href = "index.html";
   });
 }
 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.removeItem("currentUser");
         alert("👋 Đã đăng xuất!");
-        window.location.href = "Trangchu.html";
+        window.location.href = "index.html";
       });
     }
   }

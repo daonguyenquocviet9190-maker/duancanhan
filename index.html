@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trang chủ — Acc </title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/Models.js" defer></script>
+  <script src="js/trangchu.js" defer></script>
+   <script src="js/Giohang.js" defer></script>
+</head>
+<body>
+  <header>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <div class="brand"><div class="logo">FF</div><div><div style="font-weight:700">Acc free free Q$V</div><div style="font-size:12px;color:var(--muted)"></div></div></div>
+    <nav class="menu">
+      <a href="Giohang.html"><svg width="20" height="20"><!--svg--></svg></a>
+      <a href="Models.html">Models</a>
+      <a href="Phantrungbay.html">Phòng trưng bày</a>
+      <a href="Lienhe.html">Liên hệ</a>
+      <div id="authButtons"><a href="Dangnhap.html">Đăng nhập</a><a href="Dangky.html">Đăng ký</a></div>
+      <div id="userInfo" style="display:none;"><img src="" class="avatar"><button onclick="logout()">Đăng xuất</button></div>
+      <a href="Giohang.html" class="cart-link">Giỏ <span id="cartCount" class="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="banner-slider">
+      <div class="slides">
+        <div class="slide"><img src="image/panner1.1.jpg" alt=""></div>
+        <div class="slide"><img src="image/banner2.jpg" alt=""></div>
+        <div class="slide"><img src="image/banner3.webp" alt=""></div>
+      </div>
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </section>
+
+    <section id="models" class="models">
+      <h2>Models nổi bật</h2>
+      <div id="listModels" class="grid"></div>
+    </section>
+<section id="products" class="products">
+  <h2>Sản phẩm nổi bật</h2>
+  
+  <!-- Bộ lọc theo giá -->
+  <div class="filter-bar">
+    <label for="priceFilter">Lọc theo giá:</label>
+    <select id="priceFilter" onchange="filterByPrice()">
+      <option value="all">Tất cả</option>
+      <option value="0-300000">Dưới 300,000 $</option>
+      <option value="300000-500000">300,000 $ - 500,000 $</option>
+      <option value="500000-999999999">Trên 500,000 $</option>
+    </select>
+  </div>
+
+  <div id="listProducts" class="grid"></div>
+</section>
+
+
+
+
+</section>
+
+
+    <section id="showroom">
+      <h3>Showroom & Dịch vụ</h3>
+      <div class="grid">
+        <div class="card"><strong>Địa chỉ</strong><div class="small">375 Lê Văn Thọ, Gò Vấp, TP.HCM</div></div>
+        <div class="card"><strong>Dịch vụ</strong><div class="small">Bảo dưỡng, sửa chữa chính hãng.</div></div>
+        <div class="card"><strong>Giờ mở cửa</strong><div class="small">Thứ 2–Thứ 7: 9:00 — 18:00</div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card">
+        <div style="flex:1"><h4>Liên hệ tư vấn</h4><p class="small">Gọi: <strong>+84 123 567 890</strong></p></div>
+        <div><button class="primary" onclick="window.location.href='Lienhe.html'">Gửi yêu cầu</button></div>
+      </div>
+    </section>
+  </main>
+<script src="data.js"></script>
+
+</body>
+</html>

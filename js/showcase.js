@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
     <nav class="menu">
-      <a href="Trangchu.html">Trang Chủ</a>
+      <a href="index.html">Trang Chủ</a>
       <a href="Models.html">Models</a>
       <a href="Showroom.html" class="active">Showroom</a>
       <a href="Lienhe.html">Liên hệ</a>
